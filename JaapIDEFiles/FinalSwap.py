@@ -23,17 +23,14 @@ class Node(object):
             (self.misplaces).append((gene - 1) - (self.state).index(gene))
 
     def createChildren(self, combinations, goal, divisor, priority_queue, archive):
-        # print current self
-        # print "Self: ", self.state
+        # PRINT CURRENT SELF
+        print "Self: ", self.state
         for interval in combinations:
             # create new state
             child_state = self.state
             first_index = interval[0]
             second_index = interval[1]
             child_state[first_index:second_index + 1] = child_state[first_index:second_index + 1][::-1]
-            
-            # PRINT CURRENT STATE
-            # print "Child state: ", child_state
             
             # calculate new stepcount and gene-transfer values
             child_steps = self.steps + 1
@@ -105,9 +102,7 @@ def runProgram(goal, genome):
 
     # repeat pathfinding until done
     while solved == False:
-        # find node with lowest total in priority_queue
-        # priority_queue.queue = priority_queue.queue[0:len(priority_queue.queue)/2]
-        '''
+        # prune the priority queue
         if (len(priority_queue.queue) > 500000):
             highest = (priority_queue.queue[0][1]).steps
             for nodes in priority_queue.queue:
@@ -115,10 +110,21 @@ def runProgram(goal, genome):
                     highest = nodes[1].steps
             print "Step: ", highest
             priority_queue.queue = priority_queue.queue[0:200000]
-        '''
+        # print length
         print len(priority_queue.queue)
+        
+        # find node with lowest total in priority_queue
         priority_queue.queue[0][1].createChildren(combinations, goal, divisor, priority_queue, archive)
+    
+    # solution reached!
     print "Done!"
+    for nodes in archive:
+        if nodes.state == range(1, 26):
+            print "Steps: ", nodes.steps, "\n"
+            print "Genes transferred: ", nodes.genes, "\n", "\n"
+            print "Solution: ", nodes.state, "\n"
+            while nodes.parent != None:
+                print "Previous: ", nodes.parent, "\n"
 
 # define user interface
 user_goal = input('Press 0 for minimum amount of inversions and 1 for minimum amount of inverted genes: ')
