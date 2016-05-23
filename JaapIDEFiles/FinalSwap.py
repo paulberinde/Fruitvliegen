@@ -63,7 +63,7 @@ def runProgram(goal, genome):
         1 = random
     '''
     if goal == 0:
-        divisor = 1
+        divisor = 25
     elif goal == 1:
         divisor = 1
     if genome == 0:
