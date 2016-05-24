@@ -2,7 +2,7 @@
 """
 Created on Tue May 24 18:10:49 2016
 
-@author: Merel
+@authors: Merel van den Hurk, Paul Berinde-Tâmpănariu, Jaap Nieuwenhuizen
 """
 
 # import
