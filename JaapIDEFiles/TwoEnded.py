@@ -164,10 +164,7 @@ class TwoEndedSwap(object):
                 print "Reversed:{}".format(prRed(self.swap))
                 
                 # add the number of swapped genes to the transferred gene counter
-                if (self.patlen % 2 == 0):
-                    self.transferredGenes += self.patlen
-                else:
-                    self.transferredGenes += self.patlen - 1
+                self.transferredGenes += self.patlen
                 print "Transferred genes:", self.transferredGenes
         
         else:
@@ -200,10 +197,7 @@ class TwoEndedSwap(object):
                 print "Reversed:{}".format(prRed(self.swap))
                 
                 # add the number of swapped genes to the transferred gene counter
-                if (self.patlen % 2 == 0):
-                    self.transferredGenes += self.patlen
-                else:
-                    self.transferredGenes += self.patlen - 1
+                self.transferredGenes += self.patlen
                 print "Transferred genes:", self.transferredGenes
 
     def regularSwapping(self):
@@ -237,10 +231,7 @@ class TwoEndedSwap(object):
             print "Reversed:{}".format(prRed(self.swap))
             
             # add the number of swapped genes to the transferred gene counter
-            if (len(self.swap) % 2 == 0):
-                self.transferredGenes += len(self.swap)
-            else:
-                self.transferredGenes += len(self.swap) - 1
+            self.transferredGenes += len(self.swap)
             print "Transferred genes:", self.transferredGenes
         
         else:
@@ -266,10 +257,7 @@ class TwoEndedSwap(object):
             print "Reversed:{}".format(prRed(self.swap))
             
             # add the number of swapped genes to the transferred gene counter
-            if (len(self.swap) % 2 == 0):
-                self.transferredGenes += len(self.swap)
-            else:
-                self.transferredGenes += len(self.swap) - 1
+            self.transferredGenes += len(self.swap)
             print "Transferred genes:", self.transferredGenes
 
     def runSimulation(self):
